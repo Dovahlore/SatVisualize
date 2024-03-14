@@ -132,13 +132,13 @@ ani.save("gif.gif",writer='pillow') #生成gif
 
 ## 效果展示
 
-![](D:\mayuq\OneDrive - mogician\文档\Projects\PycharmProjects\Stellaris\gif.gif)
+![](gif.gif)
 
 ## 实现方法
 
 卫星轨道的推理使用了pyephem库的功能，利用卫星两行TLE数据导入可计算在某一时刻卫星的映射的经纬度和高度。支持多个卫星计算与绘制。卫星TLE数据可以再[CelesTrak: Current GP Element Sets](https://celestrak.org/NORAD/elements/)网站中获取，由于卫星遥测数据具有时效性，因此在轨道预测计算时不能计算与TLE数据时间很远的时间点。
 
-![TLE数据](C:\Users\dovahkiin\AppData\Roaming\Typora\typora-user-images\image-20240313132853196.png)
+![TLE数据](TLE.png)
 
 设置合适的观察点坐标以及观察点高度，通过时间推移计算各个时间的观察角。这里用*sat.alt*函数返回的观察角度会受到受大气折射以及气温气压影响，详细内容请参考[PyEphem Quick Reference — PyEphem home page (rhodesmill.org)](https://rhodesmill.org/pyephem/quick.html)。利用以上数据我们可以计算出卫星的通信窗口，从而模拟出可进行通信测控的时间段。
 
